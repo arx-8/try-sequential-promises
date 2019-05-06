@@ -1,0 +1,38 @@
+{
+  // eslint --fix に import の整形がないため、VSCodeに任せる
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  /**
+   * UI/DX関係
+   */
+  "diffEditor.ignoreTrimWhitespace": false,
+  "search.exclude": {
+    "**/dist": true
+  },
+  "files.watcherExclude": {
+    "**/dist/*": true
+  },
+  /**
+   * Extensions
+   */
+  /** dbaeumer.vscode-eslint */
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true },
+  ],
+   // 正しくprettier導入するまでの一時対応
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.eslintIntegration": true,
+  "prettier.arrowParens": "always",
+  "prettier.semi": false,
+  "prettier.trailingComma": "all"
+}
