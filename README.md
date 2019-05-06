@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+node version: 8.10 or higher.
+
+```sh
+npm i
+```
+
 ## Available Scripts
 
 ### `npm test`
