@@ -32,7 +32,7 @@ describe("Example", () => {
  */
 describe("toBe, toEqual, toStrictEqual の違いは、オブジェクトの比較", () => {
   class Human {
-    constructor(private name: string, private age: number) {}
+    public constructor(private name: string, private age: number) {}
 
     public getGreet(): string {
       return `My name is ${this.name}. ${this.age} years old`
@@ -90,9 +90,9 @@ describe("toBe, toEqual, toStrictEqual の違いは、オブジェクトの比�
    */
   describe("さらに toStrictEqual の方が厳格である", () => {
     class LaCroix {
-      flavor: string
+      private flavor: string
 
-      constructor(flavor: string) {
+      public constructor(flavor: string) {
         this.flavor = flavor
       }
     }
@@ -108,7 +108,7 @@ describe("toBe, toEqual, toStrictEqual の違いは、オブジェクトの比�
  * @see https://jestjs.io/docs/en/expect#tostrictequalvalue
  */
 describe("Exception test", () => {
-  const throwable = () => {
+  const throwable = (): never => {
     throw new Error("Lorem ipsum dolor sit amet")
   }
 

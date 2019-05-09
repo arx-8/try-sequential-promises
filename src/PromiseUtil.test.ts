@@ -57,7 +57,7 @@ describe("sequential", () => {
     const promises: (() => Promise<FetchResult | FetchResult[]>)[] = [
       fetchObject1,
       async () => {
-        return await Promise.all([
+        return Promise.all([
           fetchObject1(),
           fetchObject2(),
           fetchObject3(),

@@ -23,16 +23,5 @@
     "javascriptreact",
     { "language": "typescript", "autoFix": true },
     { "language": "typescriptreact", "autoFix": true },
-  ],
-   // 正しくprettier導入するまでの一時対応
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.eslintIntegration": true,
-  "prettier.arrowParens": "always",
-  "prettier.semi": false,
-  "prettier.trailingComma": "all"
+  ]
 }
