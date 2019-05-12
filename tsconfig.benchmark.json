@@ -1,0 +1,25 @@
+{
+  // tsconfig.jsonは、npm testするとreact-scriptに強制的に変更されてしまうため、別ファイルとして定義
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "outDir": "dist"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "__tests__",
+    "**/*.test.ts"
+  ]
+}
