@@ -1,4 +1,4 @@
-export const sequential = async <T>(
+export const sequentialReduce = async <T>(
   promises: (() => Promise<T>)[],
 ): Promise<T[]> => {
   const first = promises.shift()
