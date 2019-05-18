@@ -1,0 +1,6 @@
+Warm-up x 207,739 ops/sec ±4.07% (128 runs sampled)
+sequentialReduce x 166,658 ops/sec ±5.17% (147 runs sampled)
+sequentialReduceNoAsync x 476,616 ops/sec ±1.20% (132 runs sampled)
+sequentialForOf x 323,148 ops/sec ±4.05% (170 runs sampled)
+sequentialWhile x 322,078 ops/sec ±4.95% (175 runs sampled)
+Fastest is *** sequentialReduceNoAsync ***
