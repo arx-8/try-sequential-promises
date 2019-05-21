@@ -36,35 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sequentialReduce = function (promises) { return __awaiter(_this, void 0, void 0, function () {
-    var first, results;
-    var _this = this;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                first = promises.shift();
-                if (first == null) {
-                    return [2 /*return*/, []];
-                }
-                results = [];
-                return [4 /*yield*/, promises
-                        // 末尾に空のPromiseがないと、最後のPromiseの結果をresultsにpushできないため
-                        .concat(function () { return Promise.resolve(undefined); })
-                        .reduce(function (prev, next) { return __awaiter(_this, void 0, void 0, function () {
-                        var res;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, prev];
-                                case 1:
-                                    res = _a.sent();
-                                    results.push(res);
-                                    return [2 /*return*/, next()];
-                            }
-                        });
-                    }); }, Promise.resolve(first()))];
-            case 1:
-                _a.sent();
-                return [2 /*return*/, results];
-        }
-    });
-}); };
+exports.sequentialReduce = function (promises) {
+    return promises.reduce(function (res, next) { return __awaiter(_this, void 0, void 0, function () {
+        var r, _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0: return [4 /*yield*/, res];
+                case 1:
+                    r = _c.sent();
+                    _b = (_a = r).push;
+                    return [4 /*yield*/, next()];
+                case 2:
+                    _b.apply(_a, [_c.sent()]);
+                    return [2 /*return*/, r];
+            }
+        });
+    }); }, Promise.resolve([]));
+};

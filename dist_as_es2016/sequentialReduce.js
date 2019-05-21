@@ -8,19 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sequentialReduce = (promises) => __awaiter(this, void 0, void 0, function* () {
-    const first = promises.shift();
-    if (first == null) {
-        return [];
-    }
-    const results = [];
-    yield promises
-        // 末尾に空のPromiseがないと、最後のPromiseの結果をresultsにpushできないため
-        .concat(() => Promise.resolve(undefined))
-        .reduce((prev, next) => __awaiter(this, void 0, void 0, function* () {
-        const res = yield prev;
-        results.push(res);
-        return next();
-    }), Promise.resolve(first()));
-    return results;
-});
+exports.sequentialReduce = (promises) => {
+    return promises.reduce((res, next) => __awaiter(this, void 0, void 0, function* () {
+        const r = yield res;
+        r.push(yield next());
+        return r;
+    }), Promise.resolve([]));
+};

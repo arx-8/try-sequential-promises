@@ -1,20 +1,9 @@
-export const sequentialReduce = async <T>(
+export const sequentialReduce = <T>(
   promises: (() => Promise<T>)[],
 ): Promise<T[]> => {
-  const first = promises.shift()
-  if (first == null) {
-    return []
-  }
-
-  const results: T[] = []
-  await promises
-    // 末尾に空のPromiseがないと、最後のPromiseの結果をresultsにpushできないため
-    .concat(() => Promise.resolve(undefined as any))
-    .reduce(async (prev, next) => {
-      const res = await prev
-      results.push(res)
-      return next()
-    }, Promise.resolve(first()))
-
-  return results
+  return promises.reduce(async (res, next) => {
+    const r = await res
+    r.push(await next())
+    return r
+  }, Promise.resolve([] as T[]))
 }
